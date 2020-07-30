@@ -140,20 +140,20 @@ class CacheStore {
   }
 
   Future<void> _cleanupCache() async {
-    final toRemove = <int>[];
-    final provider = await _cacheInfoRepository;
+    // final toRemove = <int>[];
+    // final provider = await _cacheInfoRepository;
 
-    final overCapacity = await provider.getObjectsOverCapacity(_capacity);
-    for (final cacheObject in overCapacity) {
-      unawaited(_removeCachedFile(cacheObject, toRemove));
-    }
+    // final overCapacity = await provider.getObjectsOverCapacity(_capacity);
+    // for (final cacheObject in overCapacity) {
+    //   unawaited(_removeCachedFile(cacheObject, toRemove));
+    // }
 
-    final oldObjects = await provider.getOldObjects(_maxAge);
-    for (final cacheObject in oldObjects) {
-      unawaited(_removeCachedFile(cacheObject, toRemove));
-    }
+    // final oldObjects = await provider.getOldObjects(_maxAge);
+    // for (final cacheObject in oldObjects) {
+    //   unawaited(_removeCachedFile(cacheObject, toRemove));
+    // }
 
-    await provider.deleteAll(toRemove);
+    // await provider.deleteAll(toRemove);
   }
 
   Future<void> emptyCache() async {
